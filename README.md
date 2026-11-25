@@ -9,19 +9,24 @@ Reduzir o tempo gasto em tarefas operacionais e repetitivas através de scripts 
 
 ---
 
-## 📂 Estrutura do Projeto
-- `main.py`: Script de exemplo que analisa diretórios e gera estatísticas automáticas de arquivos.
-- `.gitignore`: Configuração para ignorar arquivos temporários, logs e arquivos do Excel.
+## 📂 Recursos Disponíveis
+
+### 1. Analisador e Gerador de Relatórios (`main.py`)
+- Varre pastas e subpastas de forma recursiva.
+- Calcula quantidade de arquivos e espaço em disco (MB).
+- Mapeia as extensões mais frequentes.
+- **Exportação automática:** gera um arquivo consolidado `relatorio_execucao.txt`.
 
 ---
 
 ## 🚀 Como Executar
 
 1. Certifique-se de ter o Python instalado.
-2. No terminal, execute:
+2. No terminal ou PowerShell, execute:
    ```bash
    python main.py
    ```
+3. O relatório será exibido na tela e salvo automaticamente no arquivo `relatorio_execucao.txt`.
 
 ---
 

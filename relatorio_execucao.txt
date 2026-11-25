@@ -1,0 +1,15 @@
+============================================================
+ 📄 RELATÓRIO CONSOLIDADO DE ARQUIVOS
+ Gerado em: 25/11/2026 13:03:21
+============================================================
+• Diretório analisado : C:\Users\luis.lima\Documents\GitHub\automacoes-python
+• Total de arquivos   : 36
+• Espaço ocupado      : 0.03 MB
+
+📊 Distribuição por extensão:
+   - sem_extensao: 20 arquivo(s)
+   - .sample     : 14 arquivo(s)
+   - .py         : 1 arquivo(s)
+   - .md         : 1 arquivo(s)
+============================================================
+Fim do relatório.

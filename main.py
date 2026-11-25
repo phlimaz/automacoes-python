@@ -1,7 +1,7 @@
 """
 Módulo de Exemplo de Automação
 Autor: Luís Philipe (@phlimaz)
-Descrição: Script de automação que processa e resume informações de arquivos em diretórios.
+Descrição: Script de automação que analisa arquivos em diretórios e gera relatórios automáticos.
 """
 
 from pathlib import Path
@@ -38,10 +38,35 @@ def gerar_relatorio_diretorio(caminho_pasta: str = ".") -> dict:
     }
 
 
+def salvar_relatorio_txt(dados: dict, nome_arquivo: str = "relatorio_execucao.txt") -> Path:
+    """Exporta o resumo da análise para um arquivo de texto organizado."""
+    caminho = Path(dados["pasta"]) / nome_arquivo
+    
+    conteudo = [
+        "=" * 60,
+        " 📄 RELATÓRIO CONSOLIDADO DE ARQUIVOS",
+        f" Gerado em: {dados['data_execucao']}",
+        "=" * 60,
+        f"• Diretório analisado : {dados['pasta']}",
+        f"• Total de arquivos   : {dados['total_arquivos']}",
+        f"• Espaço ocupado      : {dados['tamanho_mb']} MB",
+        "",
+        "📊 Distribuição por extensão:",
+    ]
+    
+    for ext, qtd in sorted(dados["extensoes"].items(), key=lambda x: x[1], reverse=True):
+        conteudo.append(f"   - {ext:<12}: {qtd} arquivo(s)")
+        
+    conteudo.extend(["=" * 60, "Fim do relatório."])
+    
+    caminho.write_text("\n".join(conteudo), encoding="utf-8")
+    return caminho
+
+
 def main():
-    print("=" * 55)
+    print("=" * 60)
     print(" 🚀 Automação de Análise de Arquivos - Início")
-    print("=" * 55)
+    print("=" * 60)
 
     resultado = gerar_relatorio_diretorio(".")
 
@@ -54,9 +79,12 @@ def main():
         for ext, qtd in sorted(resultado['extensoes'].items(), key=lambda x: x[1], reverse=True):
             print(f"   • {ext:<12} : {qtd} arquivo(s)")
             
-    print("=" * 55)
+        arquivo_salvo = salvar_relatorio_txt(resultado)
+        print(f"\n💾 Relatório salvo em: {arquivo_salvo.name}")
+            
+    print("=" * 60)
     print(" ✅ Automação concluída com sucesso!")
-    print("=" * 55)
+    print("=" * 60)
 
 
 if __name__ == "__main__":
