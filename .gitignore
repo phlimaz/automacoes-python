@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+venv/
+.venv/
+env/
+
+# Arquivos temporários do Excel e Office
+~$*.xlsx
+~$*.xls
+~$*.docx
+
+# Arquivos de ambiente e segredos
+.env
+*.secret
+
+# Logs
+*.log
